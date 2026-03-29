@@ -58,6 +58,10 @@
 
 </div>
 
+<footer class="text-center text-muted py-4 mt-5">
+    <small>Creado por Odana Margarita Calderon Pache, Juan Dincey Victorino Mañon, Jared Ramirez Sosa y Henry Ortiz De Jesus</small>
+</footer>
+
 <script src="assets/js/comments.js"></script>
 </body>
 </html>
