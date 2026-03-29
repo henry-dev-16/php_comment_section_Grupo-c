@@ -10,14 +10,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/icono.ico" type="image/x-icon">
 </head>
 
 <body class="bg-light">
 
 <nav class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
-        <span class="navbar-brand fw-semibold">
-            <i class="bi bi-chat-dots"></i> Sistema de Comentarios
+        <span class="navbar-brand fw-semibold d-flex align-items-center gap-2">
+            <img src="assets/img/icono.png" width="30">
+            Sistema de Comentarios
         </span>
         <button class="btn btn-outline-light btn-sm" id="logout-btn">
             <i class="bi bi-box-arrow-right"></i> Salir

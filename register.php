@@ -6,6 +6,7 @@
     <title>Registro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/icono.ico" type="image/x-icon">
 </head>
 <body class="bg-light d-flex align-items-center min-vh-100">
 
