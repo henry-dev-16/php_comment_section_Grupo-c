@@ -5,7 +5,8 @@
  *
  * Archivo: assets/js/auth.js
  * Rol: 2 - Frontend JavaScript
- * Autor: [Tu nombre]
+ * Autor: Juan Dincey Victorino Mañon
+ * Matricula: 2022-0900
  *
  * DESCRIPCIÓN:
  * Este archivo conecta los formularios HTML de login y registro con la API
@@ -29,13 +30,6 @@
  *   - input#login-email       → Campo de email
  *   - input#login-password    → Campo de contraseña
  *   - div#login-error         → Contenedor para mensajes de error
- *
- * En register.php:
- *   - form#register-form      → Formulario de registro
- *   - input#register-nombre   → Campo de nombre
- *   - input#register-email    → Campo de email
- *   - input#register-password → Campo de contraseña
- *   - div#register-error      → Contenedor para mensajes de error
  * ============================================================================
  */
 
@@ -78,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Obtiene referencia al div donde se mostrarán los errores
             const errorDiv = document.getElementById('login-error');
 
-            // Oculta cualquier mensaje de error anterior agregando la clase Bootstrap d-none
+            // Oculta cualquier mensaje de error anterior agregando la clase Bootstrap
             errorDiv.classList.add('d-none');
 
             // ----------------------------------------------------------------
