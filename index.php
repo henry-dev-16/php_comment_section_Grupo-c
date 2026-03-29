@@ -55,7 +55,5 @@
     <div id="lista-comentarios"></div>
 
 </div>
-
-<script src="assets/js/comments.js"></script>
 </body>
 </html>
