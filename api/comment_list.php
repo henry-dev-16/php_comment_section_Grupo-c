@@ -28,7 +28,7 @@ try {
 
     $stmtTotal = $db->query('SELECT COUNT(*) AS total FROM comentarios');
     $total = (int) $stmtTotal->fetch(PDO::FETCH_ASSOC)['total'];
-    $totalPaginas = (int) ceil($total / $porPagina);
+    $totalPaginas = max(1, (int) ceil($total / $porPagina));
 
     $sql = '
         SELECT c.id, c.usuario_id, c.contenido, c.creado_en, u.nombre
@@ -59,13 +59,11 @@ try {
     echo json_encode([
         'ok' => true,
         'comentarios' => $comentarios,
-        'paginacion' => [
-            'pagina' => $pagina,
-            'por_pagina' => $porPagina,
-            'total' => $total,
-            'total_paginas' => $totalPaginas
-        ]
+        'pagina_actual' => $pagina,
+        'total_paginas' => $totalPaginas
     ]);
+
+
 } catch (Throwable $e) {
     echo json_encode([
         'ok' => false,
