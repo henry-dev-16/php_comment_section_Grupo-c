@@ -5,7 +5,8 @@
  *
  * Archivo: assets/js/comments.js
  * Rol: 2 - Frontend JavaScript
- * Autor: [Tu nombre]
+ * Autor: Juan Dincey Victorino Mañon
+ * Matricula: 2022-0900
  *
  * DESCRIPCIÓN:
  * Este archivo maneja toda la lógica del frontend relacionada con los
