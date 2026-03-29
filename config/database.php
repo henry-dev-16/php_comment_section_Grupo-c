@@ -4,10 +4,10 @@ function get_db(): PDO {
     static $pdo = null;
 
     if ($pdo === null) {
-        $host = 'localhost';
-        $db   = 'sistema_comentarios';
-        $user = 'root';
-        $pass = '';
+        $host = getenv('DB_HOST') ?: 'localhost';
+        $db   = getenv('DB_NAME') ?: 'sistema_comentarios';
+        $user = getenv('DB_USER') ?: 'root';
+        $pass = getenv('DB_PASS') ?: '';
 
         $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
