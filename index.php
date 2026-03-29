@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/config/session.php';
+$usuario = session_get_user();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,9 +25,17 @@
             <img src="assets/img/icono.png" width="30">
             Sistema de Comentarios
         </span>
-        <button class="btn btn-outline-light btn-sm" id="logout-btn">
-            <i class="bi bi-box-arrow-right"></i> Salir
-        </button>
+        <div class="d-flex align-items-center gap-2">
+            <?php if ($usuario): ?>
+                <span class="text-light small" id="user-display"><?= htmlspecialchars(mb_strimwidth($usuario['nombre'], 0, 15, '...')) ?></span>
+                <button class="btn btn-outline-light btn-sm" id="logout-btn">
+                    <i class="bi bi-box-arrow-right"></i> Salir
+                </button>
+            <?php else: ?>
+                <a href="login.php" class="btn btn-outline-light btn-sm">Iniciar sesión</a>
+                <a href="register.php" class="btn btn-light btn-sm">Registrarse</a>
+            <?php endif; ?>
+        </div>
     </div>
 </nav>
 
