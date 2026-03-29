@@ -56,6 +56,14 @@ let totalPaginas = 1;
  * Inicializa todos los event listeners y carga los comentarios iniciales.
  */
 document.addEventListener('DOMContentLoaded', () => {
+    // Restaurar comentario pendiente si vuelve del login
+    const pendiente = localStorage.getItem('comentario_pendiente');
+    if (pendiente) {
+        const textarea = document.getElementById('comentario-texto');
+        if (textarea) textarea.value = pendiente;
+        localStorage.removeItem('comentario_pendiente');
+    }
+
     // Cargar comentarios al iniciar la página
     cargarComentarios();
 
@@ -112,7 +120,9 @@ async function cargarComentarios(pagina = 1) {
          * Realiza petición GET a la API de listado de comentarios.
          * El parámetro ?pagina=N permite la paginación.
          */
-        const res = await fetch(`api/comment_list.php?pagina=${pagina}`);
+        const res = await fetch(`api/comment_list.php?pagina=${pagina}`, {
+            credentials: 'same-origin',
+        });
         const data = await res.json();
 
         if (data.ok) {
@@ -295,6 +305,7 @@ function configurarEnvioComentario() {
             const res = await fetch('api/comment_create.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
+                credentials: 'same-origin',
                 body: JSON.stringify({ contenido }),
             });
 
@@ -314,11 +325,11 @@ function configurarEnvioComentario() {
                 // Error de la API (ej: "No autenticado")
                 mostrarError(data.error || 'No se pudo enviar el comentario');
 
-                // Si no está autenticado, redirigir al login
+                // Si no está autenticado, guardar texto y redirigir al login
                 if (data.error === 'No autenticado') {
-                    setTimeout(() => {
-                        window.location.href = 'login.php';
-                    }, 2000);
+                    localStorage.setItem('comentario_pendiente', contenido);
+                    window.location.href = 'login.php';
+                    return;
                 }
             }
         } catch (error) {
@@ -380,6 +391,7 @@ function configurarBotonesEliminar() {
                 const res = await fetch('api/comment_delete.php', {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
                     body: JSON.stringify({ id: comentarioId }),
                 });
 
@@ -428,6 +440,7 @@ function configurarLogout() {
             // Envía petición de logout al backend
             const res = await fetch('api/auth_logout.php', {
                 method: 'POST',
+                credentials: 'same-origin',
             });
 
             const data = await res.json();
