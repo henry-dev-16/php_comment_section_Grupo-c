@@ -10,3 +10,20 @@ body {
     border-color: #333;
     box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.1);
 }
+
+#lista-comentarios .comentario {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.comentario .autor {
+    font-weight: bold;
+}
+
+.comentario .fecha {
+    font-size: 12px;
+    color: gray;
+}
